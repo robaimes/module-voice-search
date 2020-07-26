@@ -1,0 +1,61 @@
+/**
+ * Copyright © Rob Aimes - https://aimes.dev
+ * https://github.com/robaimes
+ */
+
+& when (@media-common = true) {
+    .form.minisearch {
+        &.active {
+            .action.voice-input {
+                display: inline-block;
+            }
+        }
+
+        .field.search {
+            .control {
+                position: relative;
+            }
+        }
+
+        .action.voice-input {
+            .lib-button-icon(
+                @_icon-font-content: @icon-comment, // TODO: Fix icon
+                @_icon-font-text-hide: true,
+                @_icon-font-color: @header-icons-color
+            );
+            .lib-button-reset();
+            display: none;
+            position: absolute;
+            margin: 15px 0;
+            padding: 0;
+            right: 30px;
+            top: 0;
+            z-index: 1;
+
+            &.hidden {
+                display: none !important;
+            }
+
+            &:focus {
+                &:before {
+                    .lib-css(color, @color-gray20);
+                }
+            }
+
+            &.active {
+                &::before {
+                    color: @color-red10;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .form.minisearch {
+        .action.voice-input {
+            display: inline-block;
+            margin: 0;
+        }
+    }
+}

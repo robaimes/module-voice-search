@@ -1,0 +1,26 @@
+<?php
+/**
+ * Copyright © Rob Aimes - https://aimes.dev
+ * https://github.com/robaimes
+ */
+
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Aimes\VoiceSearch\ViewModel\Config $config */
+/** @var \Aimes\VoiceSearch\ViewModel\StoreLocale $locale */
+$config = $block->getData('config');
+$locale = $block->getData('locale');
+$title = $block->getData('title') ?: __('Voice Search');
+?>
+
+<button id="search-voice-input"
+        class="action voice-input hidden"
+        type="button"
+        title="<?= $block->escapeHtmlAttr($title) ?>"
+        data-mage-init='{
+            "Aimes_VoiceSearch/js/voice-search":{
+                "storeLocale": "<?= /* @noEscape */ $locale->getConvertedLocaleCode() ?>",
+                "skipSuggestions": <?= /* @noEscape */ (int) $config->getSkipSuggestions() ?>
+            }
+        }'>
+    <span><?= $block->escapeHtml($title) ?></span>
+</button>

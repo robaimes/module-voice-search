@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Rob Aimes - https://aimes.dev
+ * https://github.com/robaimes
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="top.search">
+            <block name="top.search.voice.input"
+                   template="Aimes_VoiceSearch::voice-input.phtml"
+                   ifconfig="catalog/search/enable_voice_search">
+                <arguments>
+                    <argument name="title" xsi:type="string" translate="true">Voice Search</argument>
+                    <argument name="config" xsi:type="object">Aimes\VoiceSearch\ViewModel\Config</argument>
+                    <argument name="locale" xsi:type="object">Aimes\VoiceSearch\ViewModel\StoreLocale</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

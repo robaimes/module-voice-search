@@ -1,0 +1,28 @@
+{
+    "name": "aimes/module-voice-search",
+    "description": "Add voice search functionality to Magento 2 global search",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Rob Aimes",
+            "email": "rob@aimes.dev",
+            "homepage": "https://aimes.dev"
+        }
+    ],
+    "require": {
+        "magento/module-catalog-search": "^101.0"
+    },
+    "support": {
+        "issues": "https://github.com/robaimes/module-voice-search/issues",
+        "source": "https://github.com/robaimes/module-voice-search"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aimes\\VoiceSearch\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

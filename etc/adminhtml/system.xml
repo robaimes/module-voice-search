@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Rob Aimes - https://aimes.dev
+ * https://github.com/robaimes
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="catalog">
+            <group id="search">
+                <field id="enable_voice_search"
+                       translate="label comment"
+                       type="select"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                       canRestore="1"
+                       sortOrder="1">
+                    <label>Enable Voice Search</label>
+                    <comment><![CDATA[Voice input will only be visible for <a href="https://caniuse.com/#search=SpeechRecognition">supported browsers</a>.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="skip_suggestions"
+                       translate="label comment"
+                       type="select"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1"
+                       canRestore="1"
+                       sortOrder="2">
+                    <label>Skip Suggestions</label>
+                    <comment>If enabled the user will be directed to the relevant search page instead of having autocomplete/suggested items show.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/*/enable_voice_search">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
